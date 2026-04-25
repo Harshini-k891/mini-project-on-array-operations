@@ -1,0 +1,53 @@
+#include<stdio.h>
+void sum(int *p,int n)
+{
+    int i,sum=0;
+    for(i=0;i<n;i++)
+    {
+        sum=sum+*(p+i);
+    }
+    printf("the sum is:%d",sum);
+}
+void reverse(int *p,int n)
+ {
+    int i;
+    int temp;
+    for(i=0;i<n/2;i++)
+    {
+        temp=*(p+i);
+        *(p+i)=*(p+n-i-1);
+        *(p+n-i-1)=temp;
+    }
+    printf("the reversed array:");
+    for(i=0;i<n;i++)
+        printf("%d ", *(p+i));
+    printf("\n");
+  }
+ void max(int *p,int n)
+ {
+     int i,m=*p;
+     for(i=1;i<n;i++)
+     {
+         if(*(p+i)>m)
+            m=*(p+i);
+
+     }
+     printf("Max=%d\n",m);
+ }
+int main()
+{
+    int arr[]={10,30,20};
+    int n=3;
+    int choice;
+    printf("1.sum\n 2.reverse\n 3.max\n enter your choice:");
+    scanf("%d",&choice);
+    if(choice==1)
+        sum(arr,n);
+    else if(choice==2)
+        reverse(arr,n);
+    else if(choice==3)
+        max(arr,n);
+    else
+       printf("no relavent option avaliable");
+    return 0;
+}
